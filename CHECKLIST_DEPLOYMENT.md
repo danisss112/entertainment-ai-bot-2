@@ -1,6 +1,6 @@
-# 📋 MASTER CHECKLIST DEPLOYMENT - ENTERTAINMENT AI ASSISTANT V1
+# 📋 MASTER CHECKLIST DEPLOYMENT - ENTERTAINMENT AI ASSISTANT V1 (MRS. AFNY MARKETING)
 
-Dokumen ini adalah **Master Checklist Deployment Lengkap dari NOL** (mulai dari Reinstall OS VPS Ubuntu 22.04, Setup Git, Instalasi aaPanel/Docker, SSL HTTPS, hingga Bot Telegram Aktif).
+Dokumen ini adalah **Master Checklist Deployment Lengkap dari NOL** (mulai dari Reinstall OS VPS Ubuntu 22.04, Setup Git, Instalasi aaPanel/Docker, SSL HTTPS & Static Assets, hingga Bot Telegram Aktif).
 
 Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang selesai!
 
@@ -33,12 +33,12 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
   - Klik **Create repository**. Salin URL repo Anda.
 
 - [ ] **1.2. Push Kodingan dari Laptop ke GitHub**
-  - Buka Terminal / PowerShell di laptop Anda di folder `c:\Users\Danis\Downloads\project`:
+  - Buka Terminal / PowerShell di laptop Anda di folder project:
     ```bash
     git init
     git branch -M main
     git add .
-    git commit -m "feat: initial commit entertainment ai assistant v1"
+    git commit -m "feat: complete entertainment ai assistant with mrs afny assets & knowledge"
     git remote add origin https://github.com/USERNAME_ANDA/entertainment-ai-bot.git
     git push -u origin main
     ```
@@ -56,33 +56,22 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
   - Tunggu 2–4 menit hingga proses instalasi selesai.
 
 - [ ] **2.2. Catat Informasi Login aaPanel**
-  - Di akhir instalasi terminal, aaPanel akan menampilkan informasi login seperti ini:
-    ```text
-    ==================================================================
-    aaPanel Internet Address: http://103.xxx.xxx.xxx:8888/xxxxxx
-    aaPanel Internal Address: http://192.168.x.x:8888/xxxxxx
-    username: xxxxxx
-    password: xxxxxx
-    ==================================================================
-    ```
+  - Di akhir instalasi terminal, aaPanel akan menampilkan informasi login.
   - **Catat / Copy** URL Internet Address, Username, dan Password tersebut.
 
 - [ ] **2.3. Login & Install Software di aaPanel App Store**
   - Buka URL aaPanel Internet Address di browser laptop Anda.
   - Masukkan Username & Password aaPanel Anda.
-  - Setelah masuk Dashboard aaPanel:
-    - Buka menu **App Store** di sidebar kiri.
-    - Cari **Docker Manager** -> Klik **Install**.
-    - Cari **Nginx** (versi 1.22 atau 1.24) -> Klik **Install** (Pilih mode *LNMP / Fast Install*).
+  - Buka menu **App Store** -> Install **Docker Manager** & **Nginx**.
 
 - [ ] **2.4. (Alternatif 1-Line) Install Docker Murni via Terminal**
-  - Jika Anda lebih suka tanpa UI aaPanel, cukup jalankan perintah Docker 1-line di terminal VPS:
+  - Jika tanpa UI aaPanel, jalankan di terminal VPS:
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
     ```
 
 - [ ] **2.5. Clone Proyek dari GitHub ke /www/wwwroot**
-  - Jalankan di Terminal VPS (atau menu Terminal di dalam aaPanel):
+  - Jalankan di Terminal VPS:
     ```bash
     cd /www/wwwroot
     git clone https://github.com/USERNAME_ANDA/entertainment-ai-bot.git
@@ -99,28 +88,26 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
   - Tambahkan A Record: Subdomain `n8n` -> Target **IP Public VPS** Anda.
 
 - [ ] **3.2. Buat & Edit File `.env` di VPS**
-  - Jalankan di Terminal VPS (atau via File Manager aaPanel di `/www/wwwroot/entertainment-ai-bot`):
+  - Jalankan di Terminal VPS:
     ```bash
     cd /www/wwwroot/entertainment-ai-bot
     cp .env.example .env
     nano .env
     ```
-  - Isi variabel berikut:
+  - Isi variabel konfigurasi:
     - `N8N_HOST=n8n.domainanda.com`
     - `POSTGRES_USER=elgroup_user`
     - `POSTGRES_PASSWORD=PasswordAman123!`
     - `TELEGRAM_BOT_TOKEN=8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns`
     - `OPENAI_API_KEY=sk-proj-xxxx...`
     - `ADMIN_TELEGRAM_ID=5437246207`
-  - Simpan: `Ctrl + O`, `Enter`. Keluar: `Ctrl + X`.
 
 - [ ] **3.3. Set Domain Nginx di VPS**
   - Edit file Nginx:
     ```bash
     nano nginx/conf.d/n8n.conf
     ```
-  - Ganti `n8n.yourdomain.com` (ada 2 tempat) dengan domain Anda.
-  - Simpan: `Ctrl + O`, `Enter`. Keluar: `Ctrl + X`.
+  - Ganti `n8n.yourdomain.com` dengan domain Anda.
 
 - [ ] **3.4. Generate Sertifikat SSL Gratis (Certbot)**
   - Jalankan di Terminal VPS:
@@ -155,23 +142,17 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
   - Akses `https://n8n.domainanda.com` di browser laptop.
   - Isi Form **Set up owner account** (Email, Nama, Password).
 
-- [ ] **5.2. Import 5 File Workflow JSON**
+- [ ] **5.2. Import Workflow JSON**
   - Klik menu **Workflows** -> **Import from File**.
-  - Import 5 file dari folder `workflows/`:
-    1. `1_telegram_router.json`
-    2. `2_admin_barcode_handler.json`
-    3. `3_ai_chat_knowledge.json`
-    4. `4_group_mention_handler.json`
-    5. `5_booking_lead_notifier.json`
+  - Pilih `workflows/master_bot_workflow.json` (All-in-One Master Workflow).
 
 - [ ] **5.3. Menambahkan Credentials**
-  - Menu **Credentials** -> **Add Credential**:
-    - **PostgreSQL**: Host: `postgres`, DB: `elgroup_db`, User: `elgroup_user`, Pass: (Pass DB di `.env`), Port: `5432`.
-    - **OpenAI**: Masukkan `OPENAI_API_KEY`.
-    - **Telegram API**: Masukkan `TELEGRAM_BOT_TOKEN`.
+  - PostgreSQL: Host `postgres`, DB `elgroup_db`, User `elgroup_user`, Pass (dari `.env`), Port `5432`.
+  - OpenAI / Groq: Masukkan API Key.
+  - Telegram API: Masukkan `TELEGRAM_BOT_TOKEN`.
 
 - [ ] **5.4. Aktifkan Workflow**
-  - Buka tiap workflow -> Geser toggle **Active** ke **ON** (Warna Hijau).
+  - Buka workflow -> Geser toggle **Active** ke **ON** (Warna Hijau).
 
 ---
 
@@ -180,19 +161,14 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
 - [ ] **6.1. Set Telegram Webhook**
   - Buka URL ini di browser:
     ```text
-    https://api.telegram.org/bot8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns/setWebhook?url=https://n8n.domainanda.com/webhook/telegram-webhook
+    https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/setWebhook?url=https://n8n.domainanda.com/webhook/telegram-webhook
     ```
   - Pastikan muncul respon `{"ok": true, "result": true}`.
 
 - [ ] **6.2. Uji Coba (Testing) Bot**
-  - Test `/start` di Telegram -> Keyboard menu muncul.
-  - Test `🎫 Barcode Masuk` -> Pilih outlet.
-  - Test AI Chat: *"Jam buka El Norte jam berapa?"*
-  - Test Booking Lead: *"Mau booking room besok jam 7 malam di El Seven"*.
+  - Test `/start` di Telegram -> Keyboard menu resmi muncul.
+  - Test `💎 Price List EL` -> Muncul pilihan 9 cabang & foto pricelist.
+  - Test `🎫 Barcode Masuk` -> Cek barcode harian (expired pukul 02.00 WIB).
+  - Test AI Knowledge: *"Jam buka El Norte jam berapa?"* & *"Ada paket karaoke apa saja di El Centro?"*.
+  - Test Booking Handover ke Mrs. Afny.
   - Test Admin Command: `/updatebarcode`.
-
----
-
-🔄 **CARA UPDATE KODINGAN DI MASA DEPAN:**
-- **Di Laptop**: `git add .` -> `git commit -m "update"` -> `git push origin main`
-- **Di VPS**: `cd /www/wwwroot/entertainment-ai-bot && ./deploy.sh`

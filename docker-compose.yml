@@ -22,20 +22,38 @@ services:
     container_name: entertainment_n8n
     restart: always
     environment:
-      - N8N_HOST=${N8N_HOST:-n8n.madamtikael.id}
+      - N8N_HOST=${N8N_HOST:-n8n.yourdomain.com}
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - WEBHOOK_URL=https://${N8N_HOST:-n8n.madamtikael.id}/
+      - WEBHOOK_URL=https://${N8N_HOST:-n8n.yourdomain.com}/
       - GENERIC_TIMEZONE=Asia/Jakarta
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_DIAGNOSTICS_ENABLED=false
     volumes:
       - n8n_data:/home/node/.n8n
+      - ./assets:/data/assets:ro
     ports:
       - "127.0.0.1:5678:5678"
     depends_on:
       - postgres
+    networks:
+      - entertainment_net
+
+  nginx:
+    image: nginx:alpine
+    container_name: entertainment_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./assets:/usr/share/nginx/html/assets:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/www/certbot:/var/www/certbot:ro
+    depends_on:
+      - n8n
     networks:
       - entertainment_net
 

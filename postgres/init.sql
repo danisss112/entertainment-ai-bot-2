@@ -1,6 +1,6 @@
 -- =============================================================================
 -- ENTERTAINMENT AI ASSISTANT - DATABASE SCHEMA & INITIAL SEED DATA
--- EL GROUP SPA & KARAOKE ASSISTANT
+-- EL GROUP SPA & KARAOKE ASSISTANT (MRS. AFNY MARKETING)
 -- =============================================================================
 
 -- Enable extension if needed
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS bot_chat_sessions (
 CREATE TABLE IF NOT EXISTS talents (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    category VARCHAR(100), -- Platinum, Gold, Celeb, Import, Panlok, Lokal
+    category VARCHAR(100), -- Platinum, Pink Lady, Model, Diamond, Celeb, Gold
     availability VARCHAR(50) DEFAULT 'Available',
     rate VARCHAR(100),
     bio TEXT,
@@ -133,188 +133,202 @@ CREATE TABLE IF NOT EXISTS knowledge (
 -- SEED DATA INITIALIZATION
 -- =============================================================================
 
--- Seed Admin (Madam Tika Admin ID)
+-- Seed Admin
 INSERT INTO admins (telegram_id, name, role) 
-VALUES (5437246207, 'Madam Tika Admin', 'super_admin')
+VALUES (5437246207, 'Mrs. Afny Admin', 'super_admin')
 ON CONFLICT (telegram_id) DO NOTHING;
 
--- Seed Outlets
+-- Seed Outlets (9 Cabang Resmi EL Group)
 INSERT INTO outlets (outlet_key, name, location_url, operational_hours, pricelist_photo_url) VALUES
-('centro',     'El Centro',           'https://g.co/kgs/XsooJhR', '14.00 - 01.00 WIB | Last Order 00.30', 'https://tikael.kereaktif.id/el_centro.jpeg'),
-('spaPangjay', 'El Spa Pangjay',      'https://g.co/kgs/XsooJhR', '12.00 - 23.00 WIB | Last Order 22.30', 'https://tikael.kereaktif.id/el_spa_pangjay_new.jpeg'),
-('seven',      'El Seven Club',       'https://g.co/kgs/XsooJhR', '18.00 - 04.00 WIB | Last Order 03.30', 'https://tikael.kereaktif.id/el_seven_club.jpeg'),
-('norte',      'El Norte',            'https://g.co/kgs/2x2ah1j', '12.00 - 24.00 WIB | Last Order 23.30', 'https://tikael.kereaktif.id/el_norte.jpeg'),
-('fenix',      'El Fenix',            'https://g.co/kgs/boEFS4t', '14.00 - 24.00 WIB | Last Order 23.30', 'https://tikael.kereaktif.id/el_fenix.jpeg'),
-('spaKG',      'El Spa KG',           'https://g.co/kgs/boEFS4t', '12.00 - 23.00 WIB | Last Order 22.30', 'https://tikael.kereaktif.id/el_spa_kelapa_gading.jpeg'),
-('orca',       'El Orca',             'https://share.google/TxtsO9ADL3uNC6XQU', '12.00 - 23.00 WIB | Last Order 22.30', 'https://tikael.kereaktif.id/el_orca_new.jpeg'),
-('casa',       'El Casa',             'https://g.co/kgs/JbtEvHK', '13.00 - 24.00 WIB | Last Order 23.30', 'https://tikael.kereaktif.id/el_casa.jpeg'),
-('memento',    'El Memento',          'https://share.google/xsynzLTqGqXn4hQ0v', '13.00 - 01.00 WIB | Last Order 00.30', 'https://tikael.kereaktif.id/el_memento.jpeg')
+('centro',          'El Centro',              'https://g.co/kgs/XsooJhR', '13.00 - 01.00 WIB | Last Order 00.30', '/assets/pricelist/el-centro.jpeg'),
+('spaPangjay',      'El Spa Pangjay',         'https://g.co/kgs/XsooJhR', '10.00 - 23.00 WIB | Last Order 22.30', '/assets/pricelist/el-spa-pangjay.jpeg'),
+('seven',           'El Seven',               'https://g.co/kgs/XsooJhR', '18.00 - 04.00 WIB | Last Order 03.30', '/assets/pricelist/el-seven.jpeg'),
+('norte',           'El Norte',               'https://g.co/kgs/2x2ah1j', '12.00 - 24.00 WIB | Last Order 23.30', '/assets/pricelist/el-norte.jpeg'),
+('fenix',           'El Fenix',               'https://g.co/kgs/boEFS4t', '13.00 - 24.00 WIB | Last Order 23.30', '/assets/pricelist/el-fenix.jpeg'),
+('spaKelapaGading', 'El Spa Kelapa Gading',   'https://g.co/kgs/boEFS4t', '12.00 - 24.00 WIB | Last Order 23.30', '/assets/pricelist/el-spa-kelapa-gading.jpeg'),
+('orca',            'El Orca',                'https://g.co/kgs/uftGAAa', '12.00 - 23.00 WIB | Last Order 22.30', '/assets/pricelist/el-orca.jpeg'),
+('cassa',           'El Cassa',               'https://g.co/kgs/JbtEvHK', '13.00 - 24.00 WIB | Last Order 23.30', '/assets/pricelist/el-cassa.jpeg'),
+('memento',         'El Memento',             'https://share.google/NkCFC2E5gQHcVXI7Y', '13.00 - 01.00 WIB | Last Order 00.30', '/assets/pricelist/el-memento.jpeg')
 ON CONFLICT (outlet_key) DO UPDATE SET 
     name = EXCLUDED.name,
     location_url = EXCLUDED.location_url,
     operational_hours = EXCLUDED.operational_hours,
     pricelist_photo_url = EXCLUDED.pricelist_photo_url;
 
--- Seed Knowledge Base (Master Version from bot IA revisi.xlsx)
+-- Seed Knowledge Base
 INSERT INTO knowledge (category, question_pattern, answer_text, keywords) VALUES
 ('jamops', 'Jam Operasional / Jam Buka Outlet', 
-'⏰ Jam Operasional EL Group:
-📍 El Centro: 14.00 - 01.00 | Last Order 00.30
-📍 El Spa Pangjay: 12.00 - 23.00 | Last Order 22.30
-📍 El Seven Club: 18.00 - 04.00 | Last Order 03.30
-📍 El Norte: 12.00 - 24.00 | Last Order 23.30
-📍 El Fenix: 14.00 - 24.00 | Last Order 23.30
-📍 El Spa Gading: 12.00 - 24.00 | Last Order 23.30
-📍 El Orca: 12.00 - 23.00 | Last Order 22.30
-📍 El Casa: 13.00 - 24.00 | Last Order 23.30
-📍 El Memento: 13.00 - 01.00 | Last Order 00.30
-Note: We Are Open Every Day 😚', 'jam, ops, buka, tutup, operasional'),
+'⏰ 𝗝𝗮𝗺 𝗢𝗽𝗲𝗿𝗮𝘀𝗶𝗼𝗻𝗮𝗹 𝗘𝗟 𝗚𝗿𝗼𝘂𝗽:
+
+📍 EL CENTRO: 13.00 - 01.00 WIB (Last Order: 00.30 WIB)
+📍 EL SPA PANGJAY: 10.00 – 23.00 WIB (Last Order: 22.30 WIB)
+📍 EL SEVEN CLUB: 18.00 – 04.00 WIB (Last Order: 03.30 WIB)
+📍 EL NORTE: 12.00 – 24.00 WIB (Last Order: 23.30 WIB)
+📍 EL FENIX: 13.00 – 24.00 WIB (Last Order: 23.30 WIB)
+📍 EL SPA GADING: 12.00 – 24.00 WIB (Last Order: 23.30 WIB)
+📍 EL ORCA: 12.00 – 23.00 WIB (Last Order: 22.30 WIB)
+📍 EL CASSA: 13.00 – 24.00 WIB (Last Order: 23.30 WIB)
+📍 EL MEMENTO: 13.00 – 01.00 WIB (Last Order: 00.30 WIB)
+
+━━━━━━━━━━━━━━━  
+𝗡𝗼𝘁𝗲: 𝗪𝗲 𝗔𝗿𝗲 𝗢𝗽𝗲𝗻 𝗘𝘃𝗲𝗿𝘆 𝗗𝗮𝘆 😘', 'jam, ops, buka, tutup, operasional, jadwal, kapan'),
 
 ('donotdo', 'Peraturan dan Larangan (Do Not Do)', 
-'⚠️ PERATURAN & KETENTUAN EL GROUP:
-DILARANG:
-1. Membawa/mengonsumsi narkoba & zat terlarang.
-2. Membawa senjata tajam/senjata api.
-3. Membawa makanan & minuman dari luar.
-4. Merekam video/mengambil foto selama room service.
-5. Memaksa terapis melakukan tindakan di luar SOP.
-6. Merusak fasilitas atau membawa pulang inventaris kamar.
+'PERATURAN & KETENTUAN EL GROUP ⚠️
 
-Sanksi pelanggaran: Pemutusan layanan tanpa refund, denda, dan BLACKLIST PERMANEN.', 'aturan, dilarang, larangan, rules, donotdo, narkoba, fasilitas'),
+DILARANG:
+1. Membawa/mengonsumsi narkoba & zat terlarang
+2. Membawa senjata tajam/senjata api
+3. Membawa makanan & minuman dari luar
+4. Merekam video/mengambil foto selama room service
+5. Memaksa terapis melakukan tindakan di luar SOP
+6. Merusak fasilitas atau membawa pulang inventaris kamar
+
+KEBIJAKAN:
+Pelanggan yang melanggar akan dikenakan Sanksi tegas berupa:
+- Pemutusan layanan tanpa refund
+- Denda sesuai kerusakan/kerugian
+- BLACKLIST PERMANEN dari semua Outlet EL Group.
+
+Demi kenyamanan & keamanan bersama. Terima kasih atas pengertiannya.', 'aturan, dilarang, larangan, rules, donotdo, narkoba, fasilitas, sanksi, blacklist'),
 
 ('applymember', 'Registrasi Member EL Group', 
-'🪪 Registrasi Member EL Group:
-Kirim format registrasi ke @MadamTika:
-- Nama member: (Bebas)
-- No HP: (Aktif untuk terima kode aktivasi via SMS/WhatsApp)
+'Hai kak! ✨
 
-Keuntungan:
-- Member bisa dipakai di semua outlet EL Group.
-- Cashback dapat diajukan Top Up (berlaku max 3 hari dari tanggal kedatangan).
-Link kartu digital: https://app.elgroupapp.com/', 'member, registrasi, daftar, cashback, kartu'),
+Untuk menjadi member EL, kamu membutuhkan:
+1. Nama
+2. Nomor WhatsApp yang aktif (untuk pengiriman kode OTP)
 
-('estafet', 'Paket Estafet', 
-'🔥 New Package Additional - ESTAFET:
-- Pilih 3 ladies platinum di lokasi langsung (tidak bisa book).
-- Durasi total 90 menit (3x FJ).
-- Ladies ke-1: 30 menit.
-- Ladies ke-2: 30 menit.
-- Ladies ke-3: 30 menit.', 'estafet, paket, ladies, platinum'),
+Pendaftaran 100% GRATIS tanpa biaya!
+Silakan klik link berikut untuk mendaftar sebagai member EL:
+👉 https://app.elgroupapp.com/
 
-('threesome', 'Paket Threesome', 
-'💦 PAKET THREESOME (KAMAR):
-1. Durasi 2 Jam: 2x FJ, Total 4 Voucher (1 Ladies 2 Voucher).
-2. Durasi 1 Jam: 1x FJ, Total 2 Voucher (1 Ladies 1 Voucher).', 'threesome, 3some, voucher, kamar'),
-
-('doublejackpot', 'Paket Double Jackpot', 
-'🎰 DOUBLE JACKPOT (Khusus El Seven):
-- Durasi 60 menit, 2x 💦 (1x FJ + 1x HJ).
-- Note: All You Can F (90 menit, max 3 ladies 30 menit, khusus grade GOLD).', 'jackpot, double, gold, seven'),
-
-('ktv', 'Paket Karaoke KTV & Party', 
-'🎤 PAKET KARAOKE KTV & PARTY:
-- Karaoke Regular: 2 Voucher (Durasi 3 Jam: 2 jam KTV + 1 jam Room Service).
-- Karaoke Party: 4 Voucher (Durasi 4 Jam: 2 jam KTV + 1 jam Party + 1 jam Room Service).
-- Pool Spa: 3 Voucher (Durasi 4 Jam: 2 jam KTV + 1 jam Bikini + 1 jam Room Service).
-- Close Voucher: 5 - 6 Voucher (Durasi hingga esok 12.00 am - 10.00 am).', 'ktv, karaoke, party, pool, bikini'),
-
-('celeb', 'Aturan Booking Celeb / Price List Celeb', 
-'⭐ ATURAN BOOKING CELEB:
-1. Wajib booking H-1 (1 hari sebelumnya).
-2. Wajib membayar DP (uang muka) 50%.
-3. Bisa request di semua Outlet EL Group.', 'celeb, booking, dp, h-1, price list celeb'),
+Keuntungan Member:
+- Member Regular: Cashback Rp 30.000 / voucher di aplikasi (berlaku max 3 hari dari tanggal kedatangan).
+- Member Prioritas (Spend Rp 70.000.000+/bln): Cashback Rp 50.000 / voucher di aplikasi.
+- Update promo eksklusif perusahaan langsung di aplikasi.', 'member, registrasi, daftar, cashback, kartu, join, prioritas, otp'),
 
 ('payment', 'Metode Pembayaran', 
 '💳 Metode Pembayaran Resmi EL Group:
-- QRIS
-- NFC Card EL
-- Debit / Credit Card
-- Transfer Bank
-- Cash / Tunai
-* Catatan: Pembayaran hanya dilakukan di kasir resmi.', 'payment, pembayaran, bayar, qris, transfer, cash, kartu'),
+• QRIS
+• NFC Card EL
+• Debit / Credit Card (CC kena biaya 3%)
+• Transfer Bank (CIMB Niaga)
+• Cash / Tunai
+
+⚠️ Catatan: Pembayaran hanya dilakukan di kasir resmi.', 'payment, pembayaran, bayar, qris, transfer, cash, kartu, cc, cimb'),
 
 ('contact', 'Kontak Reservasi & Admin', 
-'<b>RESERVASI & CONTACT ADMIN RESMI 🔗</b>
+'𝗕𝗮𝗿𝗰𝗼𝗱𝗲 & 𝗥𝗲𝘀𝗲𝗿𝘃𝗮𝘀𝗶 🔗
 
-💙 <b>Madam Tika (Reservasi Umum)</b>
-WhatsApp: https://wa.me/qr/O6QEVDUNDJB4G1
-Telegram: @MadamTika
+🩵 Mrs.Afni (Marketing Utama)
+WhatsApp: https://wa.me/6281280100080
+Direct Link: https://kontak.com/wa/7c5e8f
 
-💙 <b>Kim Asst Norte (Reservasi El Norte)</b>
-WhatsApp: https://wa.me/qr/XQRRH3QXZCZAA1
-Telegram: @kimasst
+TELEGRAM GRUP:
+https://t.me/SpagrupEL
 
-💙 <b>Dori Asst Fenix (Reservasi El Fenix)</b>
-WhatsApp: https://wa.me/qr/KSTLRQATOQ2PC1
-Telegram: @Doriasst
+💙 Sansan Asst (Pangjay): https://wa.me/6282114093109
+💙 Uci Asst (Spa Pangjay): https://wa.me/6282123333268
+💙 Indra Asst (El-Memento): https://wa.me/6282321292661
+💙 Bella Asst (El Orca): https://wa.me/6287899272760
+💙 Rico Asst (El Cassa): https://wa.me/6281933561210
 
-<b>👩‍💻 CS EL GROUP 24 JAM</b>
-Reservasi & Info: 
-Telegram : @Elgroupspa_bot', 'contact, kontak, admin, tika, whatsapp, wa, telegram, norte, fenix, cs'),
+Admin:
+🫦 @Mrs.Afni | @Sansan | @Uci | @Indra | @Bella | @Ricco
 
-('lost_item', 'Barang Tertinggal / Lost and Found',
-' Jangan khawatir kak! Silakan informasikan data berikut:
-- Nama:
-- Cabang:
-- Tanggal kunjungan:
-- Jam kunjungan:
-- Barang yang tertinggal:
-Kami akan membantu meneruskan informasi tersebut kepada tim outlet untuk pengecekan.', 'barang, ketinggalan, tertinggal, lost, found, hp, dompet'),
+"🔥 Reservasi lebih awal untuk mendapatkan pilihan tempat terbaik."', 'contact, kontak, admin, afni, afny, whatsapp, wa, telegram, sansan, uci, indra, bella, rico, reservasi'),
 
-('ktp', 'Persyaratan KTP / Identitas',
-' Minimal usia kunjungan 18 tahun (harus bawa KTP/Identitas resmi jika diminta staff di lokasi).', 'ktp, usia, identitas, umur, 18'),
+('layanan_options', 'Ketentuan Layanan & Fasilitas Ladies', 
+'Hai kak 👋 EL Group memiliki 2 tipe layanan:
 
-('rules_sop', 'SOP Barcode & Akses Lift Kedatangan',
-'📌 SOP KEDATANGAN & AKSES LIFT:
-1. Setiap tamu yang hendak berkunjung ke seluruh outlet EL Group WAJIB melakukan reservasi & memiliki Barcode Masuk.
-2. Barcode Masuk akan di-scan di security/kasir untuk akses masuk & akses lift.
-3. Tamu bebas memilih talent/ladies via foto atau showing langsung di lokasi.
-4. Sebutkan nama Madam Tika / Kim / Dori saat tiba di lokasi.', 'sop, barcode, lift, keamanan, security, reservasi, akses'),
+1. 💃 Ladies Companion (LC) - No Massage (Durasi 1 Jam langsung ke kamar):
+- 1 Voucher: Menemani 1 jam di kamar (eksekusi).
+- 2 Voucher: Menemani Karaoke KTV durasi 3 jam.
+- 3 Voucher: Menemani di ruangan Pool + Karaoke durasi 4 jam.
+* Grade LC: Platinum, Pink Lady, Model, Diamond, Celeb.
 
-('layanan_options', 'Perbedaan Layanan LC, Ladies Drink & Therapist',
-'Hai kak 👋 EL Group ada 3 pilihan:
-1. LC: Karaoke + Private 60mnt (Bisa karaoke terlebih dahulu dan bisa langsung Private Session 1v1 durasi 60 menit)
-2. Ladies Drink: minum 30 mnt + Private 60 mnt El Seven (Teman minum durasi 30 menit. Bisa langsung private session duration 60 menit. Khusus untuk Talent EL Seven saja)
-3. Therapist: Berendam + Pijat + Private 90 mnt El Spa (Teman berendam minum & lanjut pijat dahulu, kemudian dilanjutkan dengan private session durasi 90 menit)', 'layanan, beda, perbedaan, lc, drink, therapist, terapis, karaoke, spa'),
+2. 💆‍♀️ Therapist (Include Massage) - Durasi 90 Menit:
+- Menemani berendam bersama di pool, lanjut ke kamar untuk massage & eksekusi.
+* Grade Therapist: Gold, Platinum, Pink, Model.
 
-('fr_review', 'Testimoni & Field Report (FR) Tamu',
-'Hal kak , Nggak semua tamu kasih feedback/review, FR sebagian lebih pilih privacy. Tapi kakak nggak usah khawatir ya. Talent EL GROUP semua udah berpengalaman & rutin ikut training. Standar pelayanan kami selalu dijaga biar kakak nyaman & puas. Ditunggu kedatangannya di EL Group ✨', 'fr, review, field report, testimoni, masukan, feedback'),
+Note: Grade ladies & therapist berbeda di masing-masing cabang ya kak.', 'layanan, lc, companion, therapist, terapis, massage, pijat, grade, perbedaan, fasilitas'),
 
-('kesehatan_ladies', 'Kesehatan & Bebas HIV Talent EL Group',
-'Kak tenang aja ya 🙏 Ladies eL Group semua sudah cek kesehatan & bebas HIV. Ada dokternya juga yang rutin cek. Jadi aman & nyaman kok 😃', 'sehat, hiv, penyakit, dokter, aman, kesehatan, ladies, terapis'),
+('paket_karaoke_elcentro', 'Pricelist Paket Karaoke KTV El Centro', 
+'🎤 Paket Karaoke KTV El Centro (Durasi 3 Jam Package):
+• PLATINUM: Rp 2.040.000
+• PINK LADY: Rp 2.680.000
+• MODEL: Rp 3.280.000
+• DIAMOND: Rp 7.000.000 (Durasi 3 Jam KTV + 90 mnt ke kamar. Jika hanya ke kamar saja tanpa KTV: Rp 3.000.000)
+• CELEB: Rp 8.000.000 (Durasi 3 Jam KTV + 90 mnt ke kamar)
 
-('lokasi_cabang', 'Daftar Lokasi & Alamat 6 Outlet EL Group',
+🏢 Minimum Charge Room KTV El Centro:
+- Room VIP: Min Charge Rp 4.000.000
+- Room Standar: Min Charge Rp 2.000.000
+- Room KTV & Pool: Min Charge Rp 3.000.000
+* Saran: Untuk lebih mudah & efektif bisa ambil paket botolan (ladies + bottle)!', 'karaoke, ktv, elcentro, paket, harga ktv, vip, room, diamond, celeb, platinum, pink lady, model'),
+
+('estafet', 'Paket Estafet', 
+'🔥 New Package Additional - ESTAFET:
+- Pilih 3 ladies Platinum langsung di lokasi (tidak bisa booking).
+- Total durasi 90 menit (3x FJ 💦).
+- Ladies ke-1: 30 menit
+- Ladies ke-2: 30 menit
+- Ladies ke-3: 30 menit', 'estafet, paket, ladies, platinum, 30 menit, 90 menit'),
+
+('threesome', 'Paket Threesome', 
+'💦 PAKET THREESOME (KAMAR):
+1. Durasi 2 Jam: 2x FJ 💦, Total 4 Voucher (1 Ladies 2 Voucher).
+2. Durasi 1 Jam: 1x FJ 💦, Total 2 Voucher (1 Ladies 1 Voucher).', 'threesome, 3some, voucher, kamar, 2 jam, 1 jam'),
+
+('doublejackpot', 'Paket Double Jackpot & All You Can F', 
+'🎰 PAKET KHUSUS EL SEVEN:
+• Double Jackpot: Durasi 60 menit, 2x 💦 (1x FJ + 1x HJ).
+• All You Can F: Durasi 90 menit, max ganti 3 ladies @30 menit, 3x 💦 (khusus grade GOLD).', 'jackpot, double, seven, all you can f, gold'),
+
+('celeb_diamond', 'Aturan Booking Celeb & Diamond', 
+'⭐ ATURAN BOOKING CELEB & DIAMOND:
+1. Wajib melakukan reservasi H-1 (1 hari sebelumnya).
+2. Wajib membayar DP (uang muka) 50%.
+3. Bisa request di semua Outlet EL Group.
+Mohon hubungi Mrs. Afny untuk ketersediaan jadwal ya kak! 😊', 'celeb, diamond, booking, dp, h-1, aturan'),
+
+('rules_sop', 'SOP Barcode Masuk & Cara Booking', 
+'📌 SOP KEDATANGAN & BARCODE MASUK:
+1. Setiap tamu wajib melakukan reservasi & memiliki Barcode Masuk harian resmi.
+2. Tunjukkan Barcode Masuk kepada petugas di lokasi dan sebutkan nama Mrs. Afny di depan.
+3. Tamu bisa booking ladies sebelumnya dengan meminta absen ladies yang hadir hari ini, atau bisa pilih langsung di lokasi (showing/kontes ladies).
+*(Barcode otomatis expired setiap pukul 02.00 WIB).*', 'sop, barcode, lift, keamanan, security, reservasi, akses, cara booking, showing, kontes'),
+
+('lokasi_cabang', 'Daftar Lokasi & Alamat 9 Outlet EL Group', 
 '👥 𝗘𝗟 𝗚𝗥𝗢𝗨𝗣 💕🇮🇩
+9 Outlet Terbaik di Jakarta & Tangerang:
 
-6 Outlet Terbaik di Jakarta & Tangerang
+📍 𝟭. 𝗘𝗟 𝗖𝗘𝗡𝗧𝗥𝗢 (Lt. 8, Hotel Maxwell Pangjay, Jakarta Pusat)
+📍 𝟮. 𝗘𝗟 𝗦𝗣𝗔 𝗣𝗔𝗡𝗚𝗝𝗔𝗬 (Lt. 3, Hotel Maxwell Pangjay, Jakarta Pusat)
+📍 𝟯. 𝗘𝗟 𝗦𝗘𝗩𝗘𝗡 (Lt. 2, Hotel Maxwell Pangjay, Jakarta Pusat)
+🗺️ Maps Maxwell: https://g.co/kgs/XsooJhR
 
-📍 𝟭. 𝗘𝗟 𝗖𝗘𝗡𝗧𝗥𝗢
-• EL Centro — Lt. 8
-• EL Spa Pangjay — Lt. 3
-• EL Seven Club — Lt. 2
-📌 Lokasi: Hotel Maxwell, Pangjay — Jakarta Pusat
-🗺️ Maps: https://g.co/kgs/XsooJhR
+📍 𝟰. 𝗘𝗟 𝗙𝗘𝗡𝗜𝗫 (Lt. 10, Kelapa Gading, Jakarta Utara)
+📍 𝟱. 𝗘𝗟 𝗦𝗣𝗔 𝗞𝗘𝗟𝗔𝗣𝗔 𝗚𝗔𝗗𝗜𝗡𝗚 (Lt. 9, Kelapa Gading, Jakarta Utara)
+🗺️ Maps Kelapa Gading: https://g.co/kgs/boEFS4t
 
-📍 𝟮. 𝗘𝗟 𝗙𝗘𝗡𝗜𝗫
-• EL Fenix — Lt. 10
-• EL Spa Kelapa Gading — Lt. 9
-📌 Lokasi: Kelapa Gading — Jakarta Utara
-🗺️ Maps: https://g.co/kgs/boEFS4t
+📍 𝟲. 𝗘𝗟 𝗡𝗢𝗥𝗧𝗘 (Pantai Indah Kapuk / PIK, Jakarta Utara)
+🗺️ Maps PIK: https://g.co/kgs/2x2ah1j
 
-📍 𝟯. 𝗘𝗟 𝗡𝗢𝗥𝗧𝗘
-📌 Lokasi: Pantai Indah Kapuk — Jakarta Utara
-🗺️ Maps: https://g.co/kgs/2x2ah1j
+📍 𝟳. 𝗘𝗟 𝗢𝗥𝗖𝗔 (Green Lake City / Jakarta Barat)
+🗺️ Maps Orca: https://g.co/kgs/uftGAAa
 
-📍 𝟰. 𝗘𝗟 𝗢𝗥𝗖𝗔
-📌 Lokasi: Green Lake City — Tangerang
-🗺️ Maps: https://share.google/TxtsO9ADL3uNC6XQU
+📍 𝟴. 𝗘𝗟 𝗖𝗔𝗦𝗦𝗔 (Gading Serpong / Tangerang)
+🗺️ Maps Cassa: https://g.co/kgs/JbtEvHK
 
-📍 𝟱. 𝗘𝗟 𝗖𝗔𝗦𝗔
-📌 Lokasi: Gading Serpong — Tangerang
-🗺️ Maps: https://g.co/kgs/JbtEvHK
+📍 𝟵. 𝗘𝗟 𝗠𝗘𝗠𝗘𝗡𝗧𝗢 (Jakarta Selatan)
+🗺️ Maps Memento: https://share.google/NkCFC2E5gQHcVXI7Y
 
-📍 𝟲. 𝗘𝗟 𝗠𝗘𝗠𝗘𝗡𝗧𝗢
-📌 Lokasi: Jakarta Selatan
-🗺️ Maps: https://share.google/xsynzLTqGqXn4hQ0v
+💕 EL GROUP — Your Premium Entertainment & Relaxation Destination', 'lokasi, cabang, alamat, outlet, dimana, maps, maxwell, pangjay, pik, kelapa gading, glc, gading serpong, jaksel'),
 
-💕 EL GROUP — Your Premium Entertainment & Relaxation Destination', 'lokasi, cabang, alamat, outlet, dimana, mana saja, berapa cabang, maps, hotel maxwell, pangjay, pik, kelapa gading, glc, gading serpong, jaksel');
+('kesehatan_ladies', 'Kesehatan & Kebersihan Talent EL Group', 
+'Kak tenang aja ya 🙏 Ladies & Therapist EL Group semuanya rutin cek kesehatan dan dokter secara berkala, serta dipastikan higienis & bebas HIV. Standar pelayanan kami selalu dijaga biar kakak nyaman dan aman 😃', 'sehat, hiv, penyakit, dokter, aman, kesehatan, ladies, terapis, higienis'),
+
+('fr_review', 'Testimoni & Field Report (FR)', 
+'Halo kak! Sebagian tamu memang lebih menjaga privasi sehingga tidak semua memberikan feedback/FR publik. Tapi kakak tidak perlu khawatir, seluruh talent EL GROUP berpengalaman dan rutin mengikuti training SOP pelayanan ramah & terbaik. Ditunggu kedatangannya di EL Group ya! ✨', 'fr, review, field report, testimoni, masukan, feedback');
