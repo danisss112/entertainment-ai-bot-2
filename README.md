@@ -69,12 +69,12 @@ project/
    ```bash
    nano nginx/conf.d/n8n.conf
    ```
-   Ganti `n8n.yourdomain.com` dengan nama domain aktual Anda.
+   Ganti `n8n.madamafni.com` dengan nama domain aktual Anda.
 
 3. Dapatkan sertifikat SSL gratis dengan Certbot (Let's Encrypt):
    ```bash
    apt install -y certbot
-   certbot certonly --standalone -d n8n.yourdomain.com
+   certbot certonly --standalone -d n8n.madamafni.com
    ```
 
 ---
@@ -96,7 +96,7 @@ Pastikan `entertainment_db`, `entertainment_n8n`, dan `entertainment_nginx` bers
 
 ## 🌐 Langkah 4: Setup n8n & Webhook Telegram
 
-1. Buka browser dan akses URL n8n Anda: `https://n8n.yourdomain.com`
+1. Buka browser dan akses URL n8n Anda: `https://n8n.madamafni.com`
 2. Buat akun Admin n8n saat pertama kali dibuka.
 3. Import workflow:
    * Anda dapat mengimpor `master_bot_workflow.json` (All-in-One Master Workflow) ATAU 5 file workflow modular dari folder `workflows/`.
@@ -109,7 +109,7 @@ Pastikan `entertainment_db`, `entertainment_n8n`, dan `entertainment_nginx` bers
 6. Set Webhook Telegram ke n8n URL Anda:
    Buka URL berikut di browser Anda:
    ```text
-   https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/setWebhook?url=https://n8n.yourdomain.com/webhook/telegram-webhook
+   https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/setWebhook?url=https://n8n.madamafni.com/webhook/telegram-webhook
    ```
 
 ---

@@ -98,16 +98,16 @@ Gunakan fitur checklist markdown (`- [x]`) untuk menandai setiap langkah yang se
     - `N8N_HOST=n8n.domainanda.com`
     - `POSTGRES_USER=elgroup_user`
     - `POSTGRES_PASSWORD=PasswordAman123!`
-    - `TELEGRAM_BOT_TOKEN=8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns`
+    - `TELEGRAM_BOT_TOKEN=8924197987:AAEcQKF28QNMZgxV4tkU0SCb_RMonMxEynk`
     - `OPENAI_API_KEY=sk-proj-xxxx...`
-    - `ADMIN_TELEGRAM_ID=5437246207`
+    - `ADMIN_TELEGRAM_ID=6576926570`
 
 - [ ] **3.3. Set Domain Nginx di VPS**
   - Edit file Nginx:
     ```bash
     nano nginx/conf.d/n8n.conf
     ```
-  - Ganti `n8n.yourdomain.com` dengan domain Anda.
+  - Ganti `n8n.madamafni.com` dengan domain Anda.
 
 - [ ] **3.4. Generate Sertifikat SSL Gratis (Certbot)**
   - Jalankan di Terminal VPS:

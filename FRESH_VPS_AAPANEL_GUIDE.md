@@ -117,7 +117,7 @@ Di terminal VPS (atau Terminal aaPanel):
    - `N8N_HOST=n8n.domainanda.com` (ganti dengan domain aktual Anda).
    - `POSTGRES_USER=elgroup_user`
    - `POSTGRES_PASSWORD=BuatPasswordDatabaseAman123!`
-   - `TELEGRAM_BOT_TOKEN=8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns`
+   - `TELEGRAM_BOT_TOKEN=8924197987:AAEcQKF28QNMZgxV4tkU0SCb_RMonMxEynk`
    - `OPENAI_API_KEY=sk-proj-xxxx...`
    - `ADMIN_TELEGRAM_ID=5437246207`
    *(Simpan: `Ctrl + O`, `Enter`. Keluar: `Ctrl + X`)*.
@@ -126,7 +126,7 @@ Di terminal VPS (atau Terminal aaPanel):
    ```bash
    nano nginx/conf.d/n8n.conf
    ```
-   Ganti `n8n.yourdomain.com` (ada 2 tempat) menjadi domain Anda (misal `n8n.domainanda.com`).
+   Ganti `n8n.madamafni.com` (ada 2 tempat) menjadi domain Anda (misal `n8n.domainanda.com`).
 
 3. Install Sertifikat SSL (HTTPS) Gratis via Certbot:
    ```bash
@@ -174,7 +174,7 @@ docker compose ps
 
 Buka tab baru di browser Anda dan jalankan link ini:
 ```text
-https://api.telegram.org/bot8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns/setWebhook?url=https://n8n.domainanda.com/webhook/telegram-webhook
+https://api.telegram.org/bot8924197987:AAEcQKF28QNMZgxV4tkU0SCb_RMonMxEynk/setWebhook?url=https://n8n.domainanda.com/webhook/telegram-webhook
 ```
 
 Jika muncul `{"ok": true, "result": true}`, artinya Bot Telegram Anda **100% SUDAH AKTIF DAN SIAP DIGUNAKAN!** 🎉

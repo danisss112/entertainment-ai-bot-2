@@ -135,7 +135,9 @@ CREATE TABLE IF NOT EXISTS knowledge (
 
 -- Seed Admin
 INSERT INTO admins (telegram_id, name, role) 
-VALUES (5437246207, 'Mrs. Afny Admin', 'super_admin')
+VALUES 
+    (5437246207, 'Mrs. Afny Admin', 'super_admin'),
+    (6576926570, 'Mrs. Afny Admin 2', 'admin')
 ON CONFLICT (telegram_id) DO NOTHING;
 
 -- Seed Outlets (9 Cabang Resmi EL Group)
@@ -254,6 +256,23 @@ Admin:
 
 Note: Grade ladies & therapist berbeda di masing-masing cabang ya kak.', 'layanan, lc, companion, therapist, terapis, massage, pijat, grade, perbedaan, fasilitas'),
 
+('ruangan_ktv', 'Tipe Ruangan Karaoke KTV & Minimum Charge',
+'🎤 𝗥𝗜𝗡𝗖𝗜𝗔𝗡 𝗥𝗨𝗔𝗡𝗚𝗔𝗡 𝗞𝗔𝗥𝗔𝗢𝗞𝗘 𝗞𝗧𝗩:
+
+1. 🎤 <b>Ruangan New-VIP:</b>
+• Ruangan besar muat kisaran <b>20 orang</b> (cocok untuk party rame-rame).
+• Minimum charge: <b>Rp 4.000.000</b>.
+
+2. 🎤 <b>Ruangan POOL + KTV:</b>
+• Karaoke eksklusif + Private Pool (Hanya 2 room: <b>Room 88</b> & <b>Room 99</b>).
+• Minimum charge: <b>Rp 4.000.000</b>.
+
+3. 🎤 <b>Ruangan Standar:</b>
+• Ruangan nyaman muat hingga <b>8 orang</b>.
+• Minimum charge: <b>Rp 2.000.000</b>.
+
+Untuk reservasi room, silakan hubungi asisten cabang terkait atau Mrs. Afny ya kak! ✨', 'room, ruangan, ktv, vip, new vip, pool, standar, muat berapa, kapasitas, min charge'),
+
 ('paket_karaoke_elcentro', 'Pricelist Paket Karaoke KTV El Centro', 
 '🎤 Paket Karaoke KTV El Centro (Durasi 3 Jam Package):
 • PLATINUM: Rp 2.040.000
@@ -263,9 +282,9 @@ Note: Grade ladies & therapist berbeda di masing-masing cabang ya kak.', 'layana
 • CELEB: Rp 8.000.000 (Durasi 3 Jam KTV + 90 mnt ke kamar)
 
 🏢 Minimum Charge Room KTV El Centro:
-- Room VIP: Min Charge Rp 4.000.000
-- Room Standar: Min Charge Rp 2.000.000
-- Room KTV & Pool: Min Charge Rp 3.000.000
+- Room VIP: Min Charge Rp 4.000.000 (muat ~20 org)
+- Room Standar: Min Charge Rp 2.000.000 (muat ~8 org)
+- Room KTV & Pool: Min Charge Rp 4.000.000 (Room 88 & 99)
 * Saran: Untuk lebih mudah & efektif bisa ambil paket botolan (ladies + bottle)!', 'karaoke, ktv, elcentro, paket, harga ktv, vip, room, diamond, celeb, platinum, pink lady, model'),
 
 ('estafet', 'Paket Estafet', 
@@ -300,32 +319,42 @@ Mohon hubungi Mrs. Afny untuk ketersediaan jadwal ya kak! 😊', 'celeb, diamond
 3. Tamu bisa booking ladies sebelumnya dengan meminta absen ladies yang hadir hari ini, atau bisa pilih langsung di lokasi (showing/kontes ladies).
 *(Barcode otomatis expired setiap pukul 02.00 WIB).*', 'sop, barcode, lift, keamanan, security, reservasi, akses, cara booking, showing, kontes'),
 
-('lokasi_cabang', 'Daftar Lokasi & Alamat 9 Outlet EL Group', 
-'👥 𝗘𝗟 𝗚𝗥𝗢𝗨𝗣 💕🇮🇩
-9 Outlet Terbaik di Jakarta & Tangerang:
+('lokasi_cabang', 'Daftar Lokasi & Alamat Cabang Resmi EL Group', 
+'👑 <b>EL GROUP — SPA MASSAGE, KARAOKE, LOUNGE, BAR, CLUB</b>
 
-📍 𝟭. 𝗘𝗟 𝗖𝗘𝗡𝗧𝗥𝗢 (Lt. 8, Hotel Maxwell Pangjay, Jakarta Pusat)
-📍 𝟮. 𝗘𝗟 𝗦𝗣𝗔 𝗣𝗔𝗡𝗚𝗝𝗔𝗬 (Lt. 3, Hotel Maxwell Pangjay, Jakarta Pusat)
-📍 𝟯. 𝗘𝗟 𝗦𝗘𝗩𝗘𝗡 (Lt. 2, Hotel Maxwell Pangjay, Jakarta Pusat)
+📍 <b>1. EL CENTRO HOTEL MAXWELL</b>
+Jl. Pangjay No.40, Jakarta Pusat
+• EL Centro — Lt. 8
+• EL Spa Pangjay — Lt. 3
+• EL Seven Club — Lt. 2
 🗺️ Maps Maxwell: https://g.co/kgs/XsooJhR
 
-📍 𝟰. 𝗘𝗟 𝗙𝗘𝗡𝗜𝗫 (Lt. 10, Kelapa Gading, Jakarta Utara)
-📍 𝟱. 𝗘𝗟 𝗦𝗣𝗔 𝗞𝗘𝗟𝗔𝗣𝗔 𝗚𝗔𝗗𝗜𝗡𝗚 (Lt. 9, Kelapa Gading, Jakarta Utara)
-🗺️ Maps Kelapa Gading: https://g.co/kgs/boEFS4t
-
-📍 𝟲. 𝗘𝗟 𝗡𝗢𝗥𝗧𝗘 (Pantai Indah Kapuk / PIK, Jakarta Utara)
+📍 <b>2. EL NORTE</b>
+Ruko Galery II Mediterania Blok N8-M8, Jl. Pantai Indah Kapuk (PIK), Jakarta Utara
 🗺️ Maps PIK: https://g.co/kgs/2x2ah1j
 
-📍 𝟳. 𝗘𝗟 𝗢𝗥𝗖𝗔 (Green Lake City / Jakarta Barat)
+📍 <b>3. EL FENIX</b>
+Tower Harton City Hub, Jl. Boulevard Artha Gading Lt. 9-10, Jakarta Utara
+• EL Fenix — Lt. 10
+• EL Spa Kelapa Gading — Lt. 9
+🗺️ Maps Kelapa Gading: https://g.co/kgs/boEFS4t
+
+📍 <b>4. EL ORCA</b>
+Green Lake City, Ruko Food City No.122-123, Duri Kosambi, Cengkareng, Jakarta Barat
 🗺️ Maps Orca: https://g.co/kgs/uftGAAa
 
-📍 𝟴. 𝗘𝗟 𝗖𝗔𝗦𝗦𝗔 (Gading Serpong / Tangerang)
+📍 <b>5. EL CASA</b>
+Ruko Neo Arcade, Jl. CBD Gading No.1-2 Blok A, Tangerang
 🗺️ Maps Cassa: https://g.co/kgs/JbtEvHK
 
-📍 𝟵. 𝗘𝗟 𝗠𝗘𝗠𝗘𝗡𝗧𝗢 (Jakarta Selatan)
+📍 <b>6. EL MEMENTO</b>
+Jl. Wijaya I No.21, Jakarta Selatan
 🗺️ Maps Memento: https://share.google/NkCFC2E5gQHcVXI7Y
 
-💕 EL GROUP — Your Premium Entertainment & Relaxation Destination', 'lokasi, cabang, alamat, outlet, dimana, maps, maxwell, pangjay, pik, kelapa gading, glc, gading serpong, jaksel'),
+━━━━━━━━━━━━━━━
+📱 <b>RESERVASI & BARCODE:</b>
+Hubungi Mrs. Afny (081280100080)
+WhatsApp: https://wa.me/6281280100080', 'lokasi, cabang, alamat, outlet, dimana, maps, maxwell, pangjay, pik, kelapa gading, glc, gading serpong, jaksel, wijaya, cassa, orca, fenix, norte, centro'),
 
 ('kesehatan_ladies', 'Kesehatan & Kebersihan Talent EL Group', 
 'Kak tenang aja ya 🙏 Ladies & Therapist EL Group semuanya rutin cek kesehatan dan dokter secara berkala, serta dipastikan higienis & bebas HIV. Standar pelayanan kami selalu dijaga biar kakak nyaman dan aman 😃', 'sehat, hiv, penyakit, dokter, aman, kesehatan, ladies, terapis, higienis'),

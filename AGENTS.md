@@ -5,8 +5,8 @@ Dokumen ini berisi konfigurasi tetap, aturan sistem, arsitektur, dan SOP yang se
 ---
 
 ## 🔑 1. IDENTITAS & ADMIN
-- **Bot Token**: `8791438411:AAFKzCvX3g4xh3IW6V5jqzoc7SxDOqR_Pns`
-- **Username Bot**: `@Elgroupspa_bot`
+- **Bot Token**: `8924197987:AAEcQKF28QNMZgxV4tkU0SCb_RMonMxEynk`
+- **Username Bot**: `@Group_EL_Bot`
 - **Admin Resmi (Madam Tika)**: `5437246207` (HANYA ID INI yang memiliki akses Admin / Takeover).
 - **Akun User / Tester (Danis)**: `5660757898` (Diperlakukan sebagai Customer / Regular User, BUKAN Admin).
 - **Grup Telegram Resmi**: `@spakaraokejakarta` (Sesi Forum Topic ID: `1` untuk diskusi).
