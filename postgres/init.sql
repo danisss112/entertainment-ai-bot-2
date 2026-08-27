@@ -359,5 +359,30 @@ WhatsApp: https://wa.me/6281280100080', 'lokasi, cabang, alamat, outlet, dimana,
 ('kesehatan_ladies', 'Kesehatan & Kebersihan Talent EL Group', 
 'Kak tenang aja ya 🙏 Ladies & Therapist EL Group semuanya rutin cek kesehatan dan dokter secara berkala, serta dipastikan higienis & bebas HIV. Standar pelayanan kami selalu dijaga biar kakak nyaman dan aman 😃', 'sehat, hiv, penyakit, dokter, aman, kesehatan, ladies, terapis, higienis'),
 
+('rekomendasi_wilayah', 'Panduan Rekomendasi Outlet Terdekat Berdasarkan Wilayah', 
+'📍 <b>REKOMENDASI OUTLET EL GROUP TERDEKAT BERDASARKAN WILAYAH ANDA:</b>
+
+1. 🚗 <b>Dari Bekasi / Jakarta Timur / Cawang / Pulo Gadung:</b>
+   👉 Rekomendasi Utama: <b>EL FENIX & EL SPA KELAPA GADING</b> (Tower Harton City Hub, Jl. Blvd Artha Gading Lt. 9-10). Akses tercepat via Tol Becakayu / Tol Kelapa Gading.
+   👉 Alternatif: <b>EL CENTRO HOTEL MAXWELL</b> (Jl. Pangjay No.40, Jakpus).
+
+2. 🚗 <b>Dari Tangerang / Gading Serpong / BSD / Karawaci / Alam Sutera:</b>
+   👉 Rekomendasi Utama: <b>EL CASA</b> (Ruko Neo Arcade, Jl. CBD Gading Blok A, Gading Serpong, Tangerang).
+   👉 Alternatif: <b>EL ORCA</b> (Green Lake City / Cengkareng).
+
+3. 🚗 <b>Dari Bandara Soekarno-Hatta (Soetta) / PIK / Pluit / Jakbar:</b>
+   👉 Rekomendasi Utama: <b>EL NORTE (PIK)</b> (Ruko Galery II Mediterania Blok N8-M8, Pantai Indah Kapuk) atau <b>EL ORCA</b> (Green Lake City).
+
+4. 🚗 <b>Dari Jakarta Selatan / Blok M / Senopati / Kemang / Pondok Indah:</b>
+   👉 Rekomendasi Utama: <b>EL MEMENTO</b> (Jl. Wijaya I No.21, Kebayoran Baru, Jakarta Selatan).
+
+5. 🚗 <b>Dari Jakarta Pusat / Mangga Besar / Kota / Monas:</b>
+   👉 Rekomendasi Utama: <b>EL CENTRO HOTEL MAXWELL</b> (Jl. Pangjay No.40, Jakpus - Lt. 8 Centro, Lt. 3 Spa Pangjay, Lt. 2 Seven Club).
+
+6. 🚗 <b>Dari Depok / Bogor:</b>
+   👉 Rekomendasi: <b>EL MEMENTO (Jaksel)</b> via Tol Jagorawi / Tol TB Simatupang.
+
+Untuk reservasi & barcode akses harian, hubungi Mrs. Afny (081280100080) ya kak! ✨', 'bekasi, tangerang, serpong, bsd, karawaci, bandara, soetta, pik, cengkareng, jaksel, jakbar, jaktim, jakpus, depok, bogor, cawang, terdekat, dari mana, akses, rute, rekomendasi, dekat mana'),
+
 ('fr_review', 'Testimoni & Field Report (FR)', 
 'Halo kak! Sebagian tamu memang lebih menjaga privasi sehingga tidak semua memberikan feedback/FR publik. Tapi kakak tidak perlu khawatir, seluruh talent EL GROUP berpengalaman dan rutin mengikuti training SOP pelayanan ramah & terbaik. Ditunggu kedatangannya di EL Group ya! ✨', 'fr, review, field report, testimoni, masukan, feedback');
