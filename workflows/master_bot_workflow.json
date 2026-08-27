@@ -32,7 +32,7 @@
         "conditions": {
           "string": [
             {
-              "value1": "={{ $json.body?.message?.text || $json.body?.callback_query?.data || $json.body?.business_message?.text || ($json.body?.business_connection ? 'business_connection' : '') || ($json.body?.message?.photo ? 'photo_message' : '') || '' }}",
+              "value1": "={{ $json.message?.text || $json.body?.message?.text || $json.callback_query?.data || $json.body?.callback_query?.data || $json.business_message?.text || $json.body?.business_message?.text || ($json.photo || $json.message?.photo || $json.body?.message?.photo ? 'photo_message' : '') || ($json.business_connection || $json.body?.business_connection ? 'business_connection' : '') || '' }}",
               "operation": "isNotEmpty"
             }
           ]
