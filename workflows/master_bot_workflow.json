@@ -2,33 +2,20 @@
   "name": "EL Group Entertainment AI Assistant - Master Workflow",
   "nodes": [
     {
-      "parameters": {
-        "updates": [
-          "message",
-          "edited_message",
-          "channel_post",
-          "edited_channel_post",
-          "inline_query",
-          "chosen_inline_result",
-          "callback_query",
-          "business_connection",
-          "business_message",
-          "edited_business_message"
-        ]
-      },
       "id": "node-telegram-trigger",
       "name": "Telegram Webhook",
-      "type": "n8n-nodes-base.telegramTrigger",
-      "typeVersion": 1.1,
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
       "position": [
         100,
         300
       ],
-      "credentials": {
-        "telegramApi": {
-          "id": "telegram-bot-cred",
-          "name": "EL Group Telegram Bot"
-        }
+      "webhookId": "telegram",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "telegram",
+        "responseMode": "onReceived",
+        "options": {}
       }
     },
     {
