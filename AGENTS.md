@@ -68,3 +68,29 @@ Hadir dengan berbagai outlet premium di lokasi strategis Jakarta dan sekitarnya:
 
 ✨ Join sekarang dan jadilah yang pertama mendapatkan update terbaru dari EL Group.
 ```
+
+
+---
+
+## 📚 11. STANDAR 15 KNOWLEDGE BASE BOT AI – EL GROUP
+1. **Jam Operasional**: Jam buka per cabang (Open Every Day), jika umum tanyakan cabang tujuan.
+2. **Alamat Cabang**: Alamat detail + link Google Maps per cabang (Centro, Pangjay, Seven, Fenix, KG, Norte, Orca, Casa, Memento).
+3. **Reservasi / Booking**: Alur 2 tahap (Nama, No HP, Cabang, Tanggal, Jam, Jumlah Tamu/Layanan) + auto lead notifier ke Admin.
+4. **Harga & Price List**: Link foto resmi price list per cabang.
+5. **Promo**: Promo selalu diperbarui secara berkala, tanyakan nama cabang.
+6. **Room Karaoke (KTV)**: KTV Room di El Centro & El Fenix (Regular 2 Voucher, Party 4 Voucher, Pool Spa 3 Voucher, Close Voucher).
+7. **Spa & Therapist**: Cek ketersediaan therapist sesuai cabang dan jam kedatangan.
+8. **Metode Pembayaran**: Tunai, Debit, Kredit, QRIS (Pembayaran di kasir).
+9. **Area Parkir**: Tersedia area parkir aman untuk kendaraan roda 2 dan roda 4 di seluruh outlet.
+10. **Reservasi Mendadak / Walk-in**: Boleh datang langsung & pilih room/therapist di lokasi, namun disarankan reservasi agar siap.
+11. **Kontak Cabang / Telepon**: Nomor kontak admin/asst per cabang (Madam Tika, Kim Asst Norte, Dori Asst Fenix).
+12. **Keluhan / Komplain**: Minta data cabang, tanggal, jam, nama talent/therapist, kronologi + tag `[ESCALATE_QUESTION]`.
+13. **Lowongan Kerja (Loker)**: Posisi LC & Therapist. Seleksi awal via foto/video, jika lolos lanjut QC & bawa KTP asli.
+14. **Membership**: Keuntungan & syarat membership, kartu digital di `https://app.elgroupapp.com/`.
+15. **Salam Penutup**: *"Terima kasih telah menghubungi EL Group ❤️ Apabila masih ada pertanyaan lain, silakan kirimkan pesan kapan saja."*
+
+---
+
+## 💬 12. RESPON RESMI FR (FIELD REPORT) / REVIEW (BY AUNTY DWI)
+Jika tamu menanyakan FR, review, testimoni, atau feedback tamu lain:
+> *"Hai kak , Nggak semua tamu kasih feedback/review, FR sebagian lebih pilih privacy. Tapi kakak nggak usah khawatir ya. Talent EL GROUP semua udah berpengalaman & rutin ikut training. Standar pelayanan kami selalu dijaga biar kakak nyaman & puas. Ditunggu kedatangannya di EL Group ✨"*
