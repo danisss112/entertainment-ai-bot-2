@@ -91,6 +91,6 @@ Hadir dengan berbagai outlet premium di lokasi strategis Jakarta dan sekitarnya:
 
 ---
 
-## 💬 12. RESPON RESMI FR (FIELD REPORT) / REVIEW (BY AUNTY DWI)
+## 💬 12. RESPON RESMI FR (FIELD REPORT) / REVIEW (BY MRS. AFNY)
 Jika tamu menanyakan FR, review, testimoni, atau feedback tamu lain:
 > *"Hai kak , Nggak semua tamu kasih feedback/review, FR sebagian lebih pilih privacy. Tapi kakak nggak usah khawatir ya. Talent EL GROUP semua udah berpengalaman & rutin ikut training. Standar pelayanan kami selalu dijaga biar kakak nyaman & puas. Ditunggu kedatangannya di EL Group ✨"*
